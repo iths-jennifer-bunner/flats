@@ -1,0 +1,15 @@
+{
+  "name": "@flats/database",
+  "version": "0.0.0",
+  "private": true,
+  "license": "",
+  "scripts": {
+    "start:database": "concurrently \"yarn database:start\" \"yarn database:create\"",
+    "database:start": "docker-compose up",
+    "database:create": "wait-on tcp:9101 && docker-compose exec -T postgres /bin/bash -c \"source /postgres/initialize.sh\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "wait-on": "^6.0.1"
+  }
+}

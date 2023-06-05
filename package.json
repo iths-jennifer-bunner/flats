@@ -1,0 +1,21 @@
+{
+  "name": "flatnet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "client",
+    "common",
+    "database",
+    "server"
+  ],
+  "scripts": {
+    "migrate:up": "yarn workspace @flats/server migrate:up",
+    "migrate:down": "yarn workspace @flats/server migrate:down",
+    "migration:create": "yarn workspace @flats/server migration:create",
+    "start:all": "concurrently \"yarn start:client\" \"yarn workspace @flats/database database:start\" \"yarn workspace @flats/database database:create && yarn start:server\" ",
+    "start:client": "yarn workspace @flats/client start:client",
+    "start:database": "yarn workspace @flats/database start:database",
+    "start:server": "yarn workspace @flats/server start:server"
+  }
+}

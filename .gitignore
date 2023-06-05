@@ -1,0 +1,6 @@
+*/node_modules
+*/dist
+**/.DS_Store
+node_modules
+**/*/yarn-error.log
+/database/minio/data/.minio.sys
